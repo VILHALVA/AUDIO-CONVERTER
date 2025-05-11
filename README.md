@@ -12,13 +12,13 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
 
 ## FUNCIONALIDADES:
 * **Interface gráfica moderna (tema escuro)** com `customtkinter`.
-* **Executa em tela cheia** e não permite redimensionamento, garantindo usabilidade consistente.
+* **Executa em tela maximizada** e permite redimensionamento da janela.
 * **Seleção de diretório** contendo os arquivos de áudio.
 * **Escolha do formato de saída** entre: MP3, WAV, OGG, FLAC, AAC, M4A, WMA, OPUS e ALAC.
+* **Botões de seleção de formato exibidos horizontalmente**, centralizados dentro de um contêiner com borda visual elegante.
 * **Conversão automática**, inclusive de arquivos `.mp3` modernos que podem não funcionar em todos os dispositivos.
 * **Criação de uma nova pasta** chamada `CONVERTIDOS_<FORMATO>` para salvar os arquivos convertidos.
-* **Barra de progresso** com porcentagem e contador de arquivos convertidos.
-* **Área de status com logs em tempo real** (exibindo o progresso e mensagens do `ffmpeg`).
+* **Área de status com logs em tempo real**, exibindo o progresso da conversão e mensagens do `ffmpeg`.
 * **Mensagens de erro e alertas amigáveis**, caso nenhum arquivo válido seja encontrado.
 
 ## COMO USAR?
@@ -54,15 +54,15 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
    python CODIGO.py
    ```
 
-4. A janela abrirá automaticamente em **tela cheia**, sem opção de redimensionamento.
+4. A janela abrirá automaticamente **maximizada**, mas **permite redimensionamento manual**.
 
 5. Clique no botão **"DIRETÓRIO"** e selecione a pasta que contém os arquivos de áudio que deseja converter.
 
-6. Escolha o formato de saída desejado no grupo **"CONVERTER PARA:"** (ex: MP3, WAV, OGG, etc.).
+6. Escolha o formato de saída desejado nos **botões centralizados dentro da área “CONVERTER PARA:”** (ex: MP3, WAV, OGG, etc.).
 
 7. Clique no botão **"CONVERTER"** para iniciar a conversão.
 
-8. Acompanhe o progresso na **barra inferior** e veja os detalhes do processo na **caixa de status**.
+8. Acompanhe os detalhes do processo na **caixa de status**, que exibe logs em tempo real do `ffmpeg`.
 
 9. Ao final, será exibida uma mensagem confirmando que a conversão foi concluída.
 

@@ -28,31 +28,24 @@ class AudioConverterApp:
         self.convert_button = ctk.CTkButton(self.scrollable_frame, text="CONVERTER", command=self.start_conversion)
         self.convert_button.pack(pady=5)
 
-        self.format_frame = ctk.CTkFrame(self.scrollable_frame)
-        self.format_frame.pack(pady=5, fill="x")
+        self.format_frame_container = ctk.CTkFrame(self.scrollable_frame, border_width=2, border_color="gray")
+        self.format_frame_container.pack(pady=10, padx=10)
 
-        ctk.CTkLabel(self.format_frame, text="CONVERTER PARA:").pack(anchor='center')
+        self.format_label = ctk.CTkLabel(self.format_frame_container, text="FORMATO DE SAÍDA:", font=("Arial", 12))
+        self.format_label.pack(pady=(10, 0))
+
+        self.radio_buttons_frame = ctk.CTkFrame(self.format_frame_container)
+        self.radio_buttons_frame.pack(pady=10, padx=10)
 
         formats = ["mp3", "wav", "ogg", "flac", "aac", "m4a", "wma", "opus", "alac"]
         for fmt in formats:
-            ctk.CTkRadioButton(self.format_frame, text=fmt.upper(), variable=self.output_format, value=fmt).pack(anchor='center')
+            ctk.CTkRadioButton(
+                self.radio_buttons_frame, text=fmt.upper(), variable=self.output_format, value=fmt
+            ).pack(side="left", padx=5, pady=5)
 
         self.status_textbox = ctk.CTkTextbox(self.scrollable_frame, width=500, height=200)
         self.status_textbox.pack(pady=10)
         self.status_textbox.configure(state='disabled')
-
-        self.progress_frame = ctk.CTkFrame(self.scrollable_frame)
-        self.progress_frame.pack(pady=5, fill='x', padx=20)
-
-        self.percent_label = ctk.CTkLabel(self.progress_frame, text="0%")
-        self.percent_label.pack(side='left')
-
-        self.progress_bar = ctk.CTkProgressBar(self.progress_frame)
-        self.progress_bar.set(0)
-        self.progress_bar.pack(side='left', expand=True, fill='x', padx=10)
-
-        self.count_label = ctk.CTkLabel(self.progress_frame, text="0/0")
-        self.count_label.pack(side='right')
 
     def select_directory(self):
         directory = filedialog.askdirectory()
@@ -75,19 +68,16 @@ class AudioConverterApp:
             os.makedirs(output_dir)
 
         audio_extensions = ['*.wav', '*.ogg', '*.flac', '*.aac', '*.m4a', '*.wma', '*.alac', '*.opus', '*.mp4', '*.mov', '*.mp3']
-        
+
         audio_files = []
         for ext in audio_extensions:
             audio_files.extend(glob.glob(os.path.join(input_dir, ext)))
 
-        total_files = len(audio_files)
-        if total_files == 0:
+        if not audio_files:
             self.append_status("Nenhum arquivo de áudio encontrado no diretório!\n")
             return
 
-        converted = 0
-
-        for idx, file_path in enumerate(audio_files, 1):
+        for file_path in audio_files:
             filename = os.path.basename(file_path)
             name_without_ext = os.path.splitext(filename)[0]
             output_file = os.path.join(output_dir, f"{name_without_ext}.{selected_format}")
@@ -118,12 +108,6 @@ class AudioConverterApp:
                 self.append_status(f"Erro ao converter {filename}: {e}\n")
                 continue
 
-            converted += 1
-            percent = (converted / total_files)
-            self.progress_bar.set(percent)
-            self.percent_label.configure(text=f"{int(percent * 100)}%")
-            self.count_label.configure(text=f"{converted}/{total_files}")
-
         self.append_status("\nConversão concluída!\n")
         messagebox.showinfo("Finalizado", f"Todos os áudios foram convertidos para {selected_format.upper()} com sucesso!")
 
@@ -136,6 +120,6 @@ class AudioConverterApp:
 if __name__ == "__main__":
     root = ctk.CTk()
     app = AudioConverterApp(root)
-    root.state("zoomed")
-    root.resizable(False, False)
+    root.state("zoomed")  
+    root.resizable(True, True)
     root.mainloop()
