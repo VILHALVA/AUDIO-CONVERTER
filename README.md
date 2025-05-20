@@ -98,4 +98,4 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
 * [CONFIRA MAIS CURSOS](https://github.com/VILHALVA?tab=repositories&q=+topic:CURSO)
 
 ## CREDITOS:
-- [PROJETO BASEADO NO "MP3 CONVERTER"](https://github.com/VILHALVA/MP3-CONVERTER)
+- [PROJETO CRIADO PELO VILHALVA](https://github.com/VILHALVA)
