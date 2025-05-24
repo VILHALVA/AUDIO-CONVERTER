@@ -19,7 +19,10 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
 * **Conversão automática**, inclusive de arquivos `.mp3` modernos que podem não funcionar em todos os dispositivos.
 * **Criação de uma nova pasta** chamada `CONVERTIDOS_<FORMATO>` para salvar os arquivos convertidos.
 * **Área de status com logs em tempo real**, exibindo o progresso da conversão e mensagens do `ffmpeg`.
-* **Mensagens de erro e alertas amigáveis**, caso nenhum arquivo válido seja encontrado.
+* **Mantém a mensagem do diretório selecionado** visível mesmo após limpar o campo de status.
+* **Exibe o caminho de saída ao final da conversão**, informando onde os arquivos foram salvos.
+* **Mensagens de erro e alertas amigáveis**, caso nenhum arquivo válido seja encontrado ou o diretório não tenha sido selecionado.
+* **Barra de progresso com contagem de arquivos convertidos e percentual concluído**.
 
 ## COMO USAR?
 1. **Instale as bibliotecas necessárias:** Antes de executar o app, certifique-se de instalar todas as dependências necessárias. No terminal, execute o seguinte comando para instalar as dependências listadas no arquivo requirements.txt em `CODIGO`:
@@ -54,17 +57,17 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
    python CODIGO.py
    ```
 
-4. A janela abrirá automaticamente **maximizada**, mas **permite redimensionamento manual**.
+4. A janela abrirá automaticamente **maximizada**.
 
-5. Clique no botão **"DIRETÓRIO"** e selecione a pasta que contém os arquivos de áudio que deseja converter.
+5. Clique no botão **"DIRETÓRIO"** e selecione a pasta que contém os arquivos de áudio que deseja converter. O caminho selecionado será exibido na caixa de status e permanecerá visível durante todo o processo.
 
-6. Escolha o formato de saída desejado nos **botões centralizados dentro da área “CONVERTER PARA:”** (ex: MP3, WAV, OGG, etc.).
+6. Escolha o formato de saída desejado nos **botões horizontalmente centralizados dentro da área “FORMATO DE SAÍDA:”** (ex: MP3, WAV, OGG, etc.).
 
-7. Clique no botão **"CONVERTER"** para iniciar a conversão.
+7. Clique no botão **"CONVERTER"** para iniciar a conversão. Isso limpará os logs anteriores, mas manterá visível o diretório selecionado.
 
-8. Acompanhe os detalhes do processo na **caixa de status**, que exibe logs em tempo real do `ffmpeg`.
+8. Acompanhe os detalhes do processo na **caixa de status**, que exibe logs em tempo real do `ffmpeg`, incluindo os arquivos sendo convertidos e qualquer mensagem técnica relevante.
 
-9. Ao final, será exibida uma mensagem confirmando que a conversão foi concluída.
+9. Ao final, será exibida uma mensagem confirmando que a conversão foi concluída, **junto com o caminho da pasta onde os arquivos convertidos foram salvos**.
 
 10. Os arquivos convertidos estarão em uma subpasta chamada **`CONVERTIDOS_<FORMATO>`** (ex: `CONVERTIDOS_MP3`) criada automaticamente dentro do diretório selecionado.
 
