@@ -89,7 +89,7 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
    pyinstaller EXECUTAVEL.spec
    ```
 
-   * O executável `COPY PASTAS.exe` será criado na pasta `./CODIGO/dist`.
+   * O executável `AUDIO CONVERTER.exe` será criado na pasta `./CODIGO/dist`.
    * Após a geração, você pode excluir a pasta `./CODIGO/build`.
 
 ### 3. GERANDO O INSTALADOR:
