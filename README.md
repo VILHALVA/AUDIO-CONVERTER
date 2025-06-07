@@ -74,6 +74,7 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
 ## SOBRE O EXECUTAVEL E O INSTALADOR:
 ### 1. EXECUTANDO O INSTALADOR:
    * O instalador está localizado no diretório `./APP` e está disponível apenas para sistemas **Windows x64**. Para realizar a instalação, basta **dar dois cliques no arquivo** e seguir as instruções exibidas na tela.
+   * **Observação:** Certifique-se de que o `ffmpeg` esteja instalado e adicionado à variável de ambiente PATH do sistema para que o aplicativo funcione corretamente.
 
 ### 2. GERANDO O EXECUTAVEL:
 > **IMPORTANTE:** Antes de criar o instalador, é necessário gerar o arquivo `AUDIO CONVERTER.exe`. Para isso, siga os passos abaixo:
