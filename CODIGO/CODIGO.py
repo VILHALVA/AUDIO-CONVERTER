@@ -4,6 +4,17 @@ import os
 import subprocess
 from threading import Thread
 import glob
+import ctypes  
+
+def is_hidden(filepath):
+    name = os.path.basename(filepath)
+    if name.startswith('.'):
+        return True
+    try:
+        attrs = ctypes.windll.kernel32.GetFileAttributesW(str(filepath))
+        return bool(attrs & 2)  
+    except:
+        return False
 
 class AudioConverterApp:
     def __init__(self, root):
@@ -31,7 +42,7 @@ class AudioConverterApp:
         self.format_frame_container = ctk.CTkFrame(self.scrollable_frame, border_width=2, border_color="gray")
         self.format_frame_container.pack(pady=10, padx=10)
 
-        self.format_label = ctk.CTkLabel(self.format_frame_container, text="FORMATO DE SAÍDA:", font=("Arial", 12))
+        self.format_label = ctk.CTkLabel(self.format_frame_container, text="CONVERTER PARA:", font=("Arial", 12))
         self.format_label.pack(pady=(10, 0))
 
         self.radio_buttons_frame = ctk.CTkFrame(self.format_frame_container)
@@ -86,7 +97,8 @@ class AudioConverterApp:
 
         audio_files = []
         for ext in audio_extensions:
-            audio_files.extend(glob.glob(os.path.join(input_dir, ext)))
+            files = glob.glob(os.path.join(input_dir, ext))
+            audio_files.extend([f for f in files if not is_hidden(f)])
 
         total_files = len(audio_files)
         if not audio_files:
@@ -141,7 +153,7 @@ class AudioConverterApp:
         self.status_textbox.insert('end', message)
         self.status_textbox.see('end')
         self.status_textbox.configure(state='disabled')
-        
+
     def clear_status(self):
         self.status_textbox.configure(state='normal')
 
