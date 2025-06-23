@@ -1,5 +1,5 @@
 #define MyAppName "AUDIO CONVERTER"
-#define MyAppVersion "1.1"
+#define MyAppVersion "1.2"
 #define MyAppPublisher "My Company, Inc."
 #define Diretorio "C:\Users\HP\Downloads\GITHUB\REPOSITORIO\02-PROJETOS PUBLICOS\02-APLICATIVOS\AUDIO CONVERTER\CODIGO"
 #define MyAppURL "https://www.example.com/"

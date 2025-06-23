@@ -131,5 +131,6 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
 * [DOCUMENTAÇÃO OFICIAL DO PYINSTALLER](https://pyinstaller.org/en/stable/)
 * [DOCUMENTAÇÃO OFICIAL DO INNO SETUP](http://www.jrsoftware.org/isinfo.php)
 
-## CREDITOS:
+## CREDITOS E MAIS:
 - [PROJETO CRIADO PELO VILHALVA](https://github.com/VILHALVA)
+- [CLIQUE AQUI PARA VER O HISTÓRICO DE ATUALIZAÇÕES](./UPDATES.md)
