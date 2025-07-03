@@ -1,12 +1,14 @@
 # AUDIO CONVERTER
-📱ESTE APLICATIVO CONVERTE AUTOMATICAMENTE ARQUIVOS DE ÁUDIO PARA UM FORMATO ESCOLHIDO PELO USUÁRIO (COMO .MP3, .WAV, .OGG, ETC.) USANDO O FFMPEG.
+📱USE ESTE APLICATIVO PARA CONVERTER ARQUIVOS DE ÁUDIO (COMO .MP3, .WAV, .OGG ETC.) E/OU REMOVER METADADOS DE FORMA SIMPLES USANDO O FFMPEG.
 
 <img src="./IMAGENS/FOTO_01.png" align="center" width="400"> <br>
 <img src="./IMAGENS/FOTO_02.png" align="center" width="400"> <br>
 <img src="./IMAGENS/FOTO_03.png" align="center" width="400"> <br>
 
 ## DESCRIÇÃO:
-Este aplicativo converte automaticamente arquivos de áudio de diversos formatos (como `.wav`, `.ogg`, `.flac`, `.aac`, `.m4a`, `.wma`, `.alac`, `.opus`, `.mp4`, `.mov`, e `.mp3`) para um formato escolhido pelo usuário (por padrão, `.mp3`), utilizando a poderosa ferramenta `ffmpeg`.
+Este aplicativo converte automaticamente arquivos de áudio de diversos formatos (como `.wav`, `.ogg`, `.flac`, `.aac`, `.m4a`, `.wma`, `.alac`, `.opus`, `.mp4`, `.mov` e `.mp3`) para um formato de saída escolhido pelo usuário, utilizando a poderosa ferramenta `ffmpeg`.
+
+Além disso, agora você também pode optar por **remover os metadados** dos arquivos durante a conversão — ideal para deixar os áudios mais “limpos” e compatíveis com sistemas mais antigos que não interpretam bem essas informações extras.
 
 É especialmente útil para tornar arquivos compatíveis com qualquer dispositivo de áudio — como aparelhos antigos, carros, players portáteis e celulares que aceitam apenas formatos tradicionais.
 
@@ -14,11 +16,12 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
 * **Interface gráfica moderna (tema escuro)** com `customtkinter`.
 * **Executa em tela maximizada** e permite redimensionamento da janela.
 * **Seleção de diretório** contendo os arquivos de áudio.
-* **Escolha do formato de saída** entre: MP3, WAV, OGG, FLAC, AAC, M4A, WMA, OPUS e ALAC.
+* **Escolha do formato de saída** entre: MP3, WAV, OGG, M4A, WMA e OPUS.
 * **Botões de seleção de formato exibidos horizontalmente**, centralizados dentro de um contêiner com borda visual elegante.
+* **Opção para limpar metadados** dos arquivos convertidos (útil para remover informações embutidas como nome do artista, álbum, etc.).
 * **Conversão automática**, inclusive de arquivos `.mp3` modernos que podem não funcionar em todos os dispositivos.
 * **Criação de uma nova pasta** chamada `CONVERTIDOS_<FORMATO>` para salvar os arquivos convertidos.
-* **Área de status com logs em tempo real**, exibindo o progresso da conversão e mensagens do `ffmpeg`.
+* **Área de status com logs em tempo real**, exibindo o progresso da conversão.
 * **Mantém a mensagem do diretório selecionado** visível mesmo após limpar o campo de status.
 * **Exibe o caminho de saída ao final da conversão**, informando onde os arquivos foram salvos.
 * **Mensagens de erro e alertas amigáveis**, caso nenhum arquivo válido seja encontrado ou o diretório não tenha sido selecionado.
@@ -61,15 +64,17 @@ Este aplicativo converte automaticamente arquivos de áudio de diversos formatos
 
 5. Clique no botão **"DIRETÓRIO"** e selecione a pasta que contém os arquivos de áudio que deseja converter. O caminho selecionado será exibido na caixa de status e permanecerá visível durante todo o processo.
 
-6. Escolha o formato de saída desejado nos **botões horizontalmente centralizados dentro da área “FORMATO DE SAÍDA:”** (ex: MP3, WAV, OGG, etc.).
+6. Escolha o **formato de saída desejado** entre as opções disponíveis (MP3, WAV, OGG, M4A, WMA, OPUS), utilizando os **botões exibidos horizontalmente na área “CONVERTER PARA:”**.
 
-7. Clique no botão **"CONVERTER"** para iniciar a conversão. Isso limpará os logs anteriores, mas manterá visível o diretório selecionado.
+7. Se desejar, marque a opção **"SIM"** na seção "LIMPAR METADADOS?" para remover informações embutidas nos arquivos (como artista, álbum, capa, etc.).
 
-8. Acompanhe os detalhes do processo na **caixa de status**, que exibe logs em tempo real do `ffmpeg`, incluindo os arquivos sendo convertidos e qualquer mensagem técnica relevante.
+8. Clique no botão **"CONVERTER"** para iniciar a conversão. Os logs anteriores serão limpos, mas o diretório selecionado permanecerá visível.
 
-9. Ao final, será exibida uma mensagem confirmando que a conversão foi concluída, **junto com o caminho da pasta onde os arquivos convertidos foram salvos**.
+9. Acompanhe o processo na **caixa de status**, que exibe logs em tempo real do `ffmpeg`, incluindo os nomes dos arquivos sendo processados e qualquer mensagem relevante.
 
-10. Os arquivos convertidos estarão em uma subpasta chamada **`CONVERTIDOS_<FORMATO>`** (ex: `CONVERTIDOS_MP3`) criada automaticamente dentro do diretório selecionado.
+10. Ao final, uma mensagem de confirmação será exibida, **indicando o sucesso da conversão e o caminho da pasta de saída**.
+
+11. Os arquivos convertidos estarão em uma subpasta chamada **`CONVERTIDOS_<FORMATO>`** (por exemplo, `CONVERTIDOS_MP3`), criada automaticamente dentro do diretório selecionado.
 
 ## SOBRE O EXECUTAVEL E O INSTALADOR:
 ### 1. EXECUTANDO O INSTALADOR:
