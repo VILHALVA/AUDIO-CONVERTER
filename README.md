@@ -1,12 +1,12 @@
 # AUDIO CONVERTER
-📱USE ESTE APLICATIVO PARA CONVERTER ARQUIVOS DE ÁUDIO (COMO .MP3, .WAV, .OGG ETC.) E/OU REMOVER METADADOS DE FORMA SIMPLES USANDO O FFMPEG.
+📱USE ESTE APLICATIVO PARA CONVERTER ARQUIVOS DE ÁUDIO (PARA: "MP3", "M4A", "WMA", "WAV" E "OGG") E/OU REMOVER METADADOS DE FORMA SIMPLES USANDO O FFMPEG.
 
 <img src="./IMAGENS/FOTO_01.png" align="center" width="400"> <br>
 <img src="./IMAGENS/FOTO_02.png" align="center" width="400"> <br>
 <img src="./IMAGENS/FOTO_03.png" align="center" width="400"> <br>
 
 ## DESCRIÇÃO:
-Este aplicativo converte automaticamente arquivos de áudio de diversos formatos (como `.wav`, `.ogg`, `.flac`, `.aac`, `.m4a`, `.wma`, `.alac`, `.opus`, `.mp4`, `.mov` e `.mp3`) para um formato de saída escolhido pelo usuário, utilizando a poderosa ferramenta `ffmpeg`.
+Este aplicativo converte automaticamente arquivos de áudio de diversos formatos (como `.mp3`, `.wav`, `.ogg`, `.flac`, `.aac`, `.m4a`, `.wma`, `.alac`, `.opus`, `.mp4`, `.mov` e `.webm`) para um formato de saída escolhido pelo usuário, utilizando a poderosa ferramenta `ffmpeg`.
 
 Além disso, agora você também pode optar por **remover os metadados** dos arquivos durante a conversão — ideal para deixar os áudios mais “limpos” e compatíveis com sistemas mais antigos que não interpretam bem essas informações extras.
 
@@ -16,7 +16,7 @@ Além disso, agora você também pode optar por **remover os metadados** dos arq
 * **Interface gráfica moderna (tema escuro)** com `customtkinter`.
 * **Executa em tela maximizada** e permite redimensionamento da janela.
 * **Seleção de diretório** contendo os arquivos de áudio.
-* **Escolha do formato de saída** entre: MP3, WAV, OGG, M4A, WMA e OPUS.
+* **Escolha do formato de saída** entre: `MP3`, `M4A`, `WMA`, `WAV` e `OGG`.
 * **Botões de seleção de formato exibidos horizontalmente**, centralizados dentro de um contêiner com borda visual elegante.
 * **Opção para limpar metadados** dos arquivos convertidos (útil para remover informações embutidas como nome do artista, álbum, etc.).
 * **Conversão automática**, inclusive de arquivos `.mp3` modernos que podem não funcionar em todos os dispositivos.
@@ -64,7 +64,7 @@ Além disso, agora você também pode optar por **remover os metadados** dos arq
 
 5. Clique no botão **"DIRETÓRIO"** e selecione a pasta que contém os arquivos de áudio que deseja converter. O caminho selecionado será exibido na caixa de status e permanecerá visível durante todo o processo.
 
-6. Escolha o **formato de saída desejado** entre as opções disponíveis (MP3, WAV, OGG, M4A, WMA, OPUS), utilizando os **botões exibidos horizontalmente na área “CONVERTER PARA:”**.
+6. Escolha o **formato de saída desejado** entre as opções disponíveis (`MP3`, `M4A`, `WMA`, `WAV` e `OGG`), utilizando os **botões exibidos horizontalmente na área “CONVERTER PARA:”**.
 
 7. Se desejar, marque a opção **"SIM"** na seção "LIMPAR METADADOS?" para remover informações embutidas nos arquivos (como artista, álbum, capa, etc.).
 

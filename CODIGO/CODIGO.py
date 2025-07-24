@@ -22,7 +22,7 @@ def is_hidden(filepath):
 class AudioConverterApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("CONVERSOR DE ÁUDIO")
+        self.root.title("AUDIO CONVERTER")
 
         self.selected_directory = ""
         self.output_format = ctk.StringVar(value="MP3")
@@ -40,7 +40,7 @@ class AudioConverterApp:
         self.format_frame = ctk.CTkFrame(self.format_container)
         self.format_frame.pack(pady=10)
 
-        formats = ["MP3", "WAV", "OGG", "M4A", "WMA", "OPUS"]
+        formats = ["MP3", "M4A", "WMA", "WAV", "OGG"]
         for fmt in formats:
             ctk.CTkRadioButton(self.format_frame, text=fmt, variable=self.output_format, value=fmt, command=self.update_convert_button_state).pack(side="left", padx=5)
 
@@ -108,7 +108,7 @@ class AudioConverterApp:
         output_dir = os.path.join(input_dir, f"CONVERTIDOS_{selected_format.upper()}")
         os.makedirs(output_dir, exist_ok=True)
 
-        audio_extensions = ['*.wav', '*.ogg', '*.flac', '*.aac', '*.m4a', '*.wma', '*.alac', '*.opus', '*.mp4', '*.mov', '*.mp3']
+        audio_extensions = ['*.mp3', '*.wav', '*.ogg', '*.flac', '*.aac', '*.m4a', '*.wma', '*.alac', '*.opus', '*.mp4', '*.mov', '*.webm']
         audio_files = []
 
         for ext in audio_extensions:
