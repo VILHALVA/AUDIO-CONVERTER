@@ -6,7 +6,7 @@
   * 🔸**Remoção dos formatos**: `PADRÃO`, `flac`, `aac`, `alac` e `opus` da seção **“CONVERTER PARA”**.
   * 🔸Inclusão de um novo **contêiner exclusivo para a seção “LIMPAR METADADOS”**.
   * 🔸O botão **"DIRETÓRIO"** foi reposicionado para a **esquerda** do botão **"CONVERTER"**, alinhando melhor a interface.
-  * 🔸A altura da **caixa de status (`status_textbox`)** foi reduzida de `200` para `170`, otimizando o uso de espaço na janela.
+  * 🔸A altura da **caixa de status (`status_textbox`)** foi reduzida de `200` para `165`.
 ---
 
 ## VERSÃO 1.2 - 09/06/2025:

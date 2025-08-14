@@ -31,7 +31,7 @@ class AudioConverterApp:
         self.scrollable_frame = ctk.CTkScrollableFrame(root, width=700, height=700)
         self.scrollable_frame.pack(padx=20, pady=20, fill="both", expand=True)
 
-        ctk.CTkLabel(self.scrollable_frame, text="CONVERSOR DE ÁUDIO", font=("Arial", 20)).pack(pady=10)
+        ctk.CTkLabel(self.scrollable_frame, text="CONVERSOR DE ÁUDIO", font=("Arial", 30, "bold")).pack(pady=10)
 
         self.format_container = ctk.CTkFrame(self.scrollable_frame, border_width=2, corner_radius=10)
         self.format_container.pack(pady=5, padx=20, fill="x")
@@ -63,7 +63,7 @@ class AudioConverterApp:
         self.convert_button = ctk.CTkButton(self.button_frame, text="CONVERTER", command=self.start_conversion, state="disabled")
         self.convert_button.pack(side="left", padx=10)
 
-        self.status_textbox = ctk.CTkTextbox(self.scrollable_frame, width=500, height=170)
+        self.status_textbox = ctk.CTkTextbox(self.scrollable_frame, width=500, height=165)
         self.status_textbox.pack(pady=10)
         self.status_textbox.configure(state='disabled')
 
