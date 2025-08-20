@@ -8,7 +8,9 @@
 ## DESCRIÇÃO:
 Este aplicativo converte automaticamente arquivos de áudio de diversos formatos (como `.mp3`, `.wav`, `.ogg`, `.flac`, `.aac`, `.m4a`, `.wma`, `.alac`, `.opus`, `.mp4`, `.mov` e `.webm`) para um formato de saída escolhido pelo usuário, utilizando a poderosa ferramenta `ffmpeg`.
 
-Além disso, agora você também pode optar por **remover os metadados** dos arquivos durante a conversão — ideal para deixar os áudios mais “limpos” e compatíveis com sistemas mais antigos que não interpretam bem essas informações extras.
+Quando o formato de entrada e saída são os mesmos (ex.: MP3 → MP3), o aplicativo preserva o áudio original sem recodificação, garantindo **qualidade idêntica e conversão muito mais rápida**. Já ao trocar de formato, ele faz a conversão com configuração de qualidade otimizada.
+
+Além disso, é possível optar por **remover os metadados** dos arquivos durante a conversão — ideal para deixar os áudios mais “limpos” e compatíveis com sistemas mais antigos que não interpretam bem essas informações extras.
 
 É especialmente útil para tornar arquivos compatíveis com qualquer dispositivo de áudio — como aparelhos antigos, carros, players portáteis e celulares que aceitam apenas formatos tradicionais.
 
@@ -17,6 +19,7 @@ Além disso, agora você também pode optar por **remover os metadados** dos arq
 * **Executa em tela maximizada** e permite redimensionamento da janela.
 * **Seleção de diretório** contendo os arquivos de áudio.
 * **Escolha do formato de saída** entre: `MP3`, `M4A`, `WMA`, `WAV` e `OGG`.
+* **Preserva a qualidade original** quando entrada e saída têm o mesmo formato, evitando recodificação desnecessária.
 * **Botões de seleção de formato exibidos horizontalmente**, centralizados dentro de um contêiner com borda visual elegante.
 * **Opção para limpar metadados** dos arquivos convertidos (útil para remover informações embutidas como nome do artista, álbum, etc.).
 * **Conversão automática**, inclusive de arquivos `.mp3` modernos que podem não funcionar em todos os dispositivos.

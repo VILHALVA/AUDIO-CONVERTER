@@ -125,15 +125,32 @@ class AudioConverterApp:
             name_wo_ext = os.path.splitext(filename)[0]
             output_file = os.path.join(output_dir, f"{name_wo_ext}.{selected_format}")
 
-            cmd = ["ffmpeg", "-y", "-i", file_path, "-vn", "-ar", "44100", "-ac", "2", "-b:a", "128k"]
+            cmd = ["ffmpeg", "-y", "-i", file_path]
+
             if clear_metadata:
                 cmd += ["-map_metadata", "-1"]
+
+            input_ext = os.path.splitext(file_path)[1].lower().replace(".", "")
+
+            if input_ext == selected_format:
+                cmd += ["-c", "copy"]
+            else:
+                cmd += ["-vn", "-ar", "44100", "-ac", "2", "-b:a", "192k"]
+
             cmd.append(output_file)
 
             self.append_status(f"Convertendo: {filename} para {selected_format.upper()}...\n")
 
             try:
-                subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8", errors="ignore", creationflags=subprocess.CREATE_NO_WINDOW)
+                subprocess.run(
+                    cmd,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    text=True,
+                    encoding="utf-8",
+                    errors="ignore",
+                    creationflags=subprocess.CREATE_NO_WINDOW
+                )
             except Exception as e:
                 self.append_status(f"Erro ao converter {filename}: {e}\n")
                 continue

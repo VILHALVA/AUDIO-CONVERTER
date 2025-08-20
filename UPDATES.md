@@ -1,4 +1,21 @@
 # [ATUALIZAÇÕES:](./UPDATES.md#vers%C3%A3o-10---09052025)
+## VERSÃO 1.4 - 20/08/2025:
+* ✅**Stream copy quando o formato de entrada e saída são iguais:**
+    * Antes, mesmo que você convertesse `MP3 → MP3`, o programa **sempre re-encodava** (perda de qualidade + demora).
+    * Agora, se o formato de saída for o mesmo que o original, o FFmpeg roda com `-c copy`, ou seja:
+
+      * não recodifica o áudio,
+      * mantém a qualidade idêntica,
+      * o processo é praticamente instantâneo.
+
+    * Isso resolve aquele problema: “só queria limpar metadados, mas o áudio perdia qualidade”.
+
+* ✅**Bitrate fixo em 192 kbps apenas quando há conversão real**
+    * Se o usuário escolhe **um formato diferente** (ex.: MP3 → OGG, WAV → MP3 etc.), o programa faz a conversão normal.
+    * Para isso, define a saída com `-b:a 192k`.
+    * Ou seja, quando realmente precisa re-encodar, ele já garante um nível de qualidade razoável, sem cair para 128 kbps como antes.
+---
+
 ## VERSÃO 1.3 - 03/07/2025:
 * ✅**Foi adicionado um recurso extra: Limpar Metadados:** Agora o app conta com a opção **“LIMPAR METADADOS?”**, com dois botões de rádio: **“SIM”** e **“NÃO”** (sendo **“NÃO”** o padrão). A lógica de conversão foi atualizada para aplicar o comando `-map_metadata -1` do FFmpeg **somente quando o usuário escolher "SIM"**, permitindo a remoção dos metadados de forma totalmente opcional e prática!
 * ✅**Todo o layout do aplicativo foi redesenhado. As mudanças incluem**:
