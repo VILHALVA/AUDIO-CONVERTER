@@ -10,7 +10,7 @@
 
     * Isso resolve aquele problema: “só queria limpar metadados, mas o áudio perdia qualidade”.
 
-* ✅**Bitrate fixo em 192 kbps apenas quando há conversão real**
+* ✅**Bitrate fixo em 192 kbps apenas quando há conversão real:**
     * Se o usuário escolhe **um formato diferente** (ex.: MP3 → OGG, WAV → MP3 etc.), o programa faz a conversão normal.
     * Para isso, define a saída com `-b:a 192k`.
     * Ou seja, quando realmente precisa re-encodar, ele já garante um nível de qualidade razoável, sem cair para 128 kbps como antes.
