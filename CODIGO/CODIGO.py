@@ -129,13 +129,20 @@ class AudioConverterApp:
 
             if clear_metadata:
                 cmd += ["-map_metadata", "-1"]
+            else:
+                cmd += ["-map_metadata", "0"]
 
             input_ext = os.path.splitext(file_path)[1].lower().replace(".", "")
-
+            
+            conv = ["-vn", "-ar", "44100", "-ac", "2", "-b:a", "192k"]
+            
             if input_ext == selected_format:
-                cmd += ["-c", "copy"]
+                if clear_metadata:
+                    cmd += ["-c", "copy"]
+                else:
+                    cmd += conv
             else:
-                cmd += ["-vn", "-ar", "44100", "-ac", "2", "-b:a", "192k"]
+                cmd += conv
 
             cmd.append(output_file)
 

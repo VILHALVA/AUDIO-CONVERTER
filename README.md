@@ -6,20 +6,23 @@
 <img src="./IMAGENS/FOTO_03.png" align="center" width="400"> <br>
 
 ## DESCRIÇÃO:
-Este aplicativo converte automaticamente arquivos de áudio de diversos formatos (como `.mp3`, `.wav`, `.ogg`, `.flac`, `.aac`, `.m4a`, `.wma`, `.alac`, `.opus`, `.mp4`, `.mov` e `.webm`) para um formato de saída escolhido pelo usuário, utilizando a poderosa ferramenta `ffmpeg`.
+* Este aplicativo converte automaticamente arquivos de áudio de diversos formatos (como `.mp3`, `.wav`, `.ogg`, `.flac`, `.aac`, `.m4a`, `.wma`, `.alac`, `.opus`, `.mp4`, `.mov` e `.webm`) para um formato de saída escolhido pelo usuário, utilizando a poderosa ferramenta `ffmpeg`.
 
-Quando o formato de entrada e saída são os mesmos (ex.: MP3 → MP3), o aplicativo preserva o áudio original sem recodificação, garantindo **qualidade idêntica e conversão muito mais rápida**. Já ao trocar de formato, ele faz a conversão com configuração de qualidade otimizada.
+* É especialmente útil para tornar arquivos compatíveis com qualquer dispositivo de áudio — como aparelhos antigos, carros, players portáteis e celulares que aceitam apenas formatos tradicionais.
 
-Além disso, é possível optar por **remover os metadados** dos arquivos durante a conversão — ideal para deixar os áudios mais “limpos” e compatíveis com sistemas mais antigos que não interpretam bem essas informações extras.
+## RECURSOS:
+* Quando o **formato de entrada e saída são os mesmos** (ex.: MP3 → MP3), o aplicativo se adapta à sua escolha:
+   * Se marcar **"SIM" para limpar metadados**, ele apenas copia o áudio original sem recodificação (`-c copy`), garantindo **qualidade idêntica e conversão muito mais rápida**.
+   * Se marcar **"NÃO"**, ele faz a **reconversão real**, aplicando as configurações de qualidade definidas e preservando os metadados.
 
-É especialmente útil para tornar arquivos compatíveis com qualquer dispositivo de áudio — como aparelhos antigos, carros, players portáteis e celulares que aceitam apenas formatos tradicionais.
+* Já ao **trocar de formato** (ex.: MP3 → WAV), o aplicativo sempre realiza a conversão, removendo ou preservando os metadados de acordo com sua escolha.
 
 ## FUNCIONALIDADES:
 * **Interface gráfica moderna (tema escuro)** com `customtkinter`.
 * **Executa em tela maximizada** e permite redimensionamento da janela.
 * **Seleção de diretório** contendo os arquivos de áudio.
 * **Escolha do formato de saída** entre: `MP3`, `M4A`, `WMA`, `WAV` e `OGG`.
-* **Preserva a qualidade original** quando entrada e saída têm o mesmo formato, evitando recodificação desnecessária.
+* **Permite escolher a preservação de metadados** e, se desejar, faz a conversão mesmo quando entrada e saída têm o mesmo formato, mantendo a qualidade ou aplicando a configuração de áudio definida.
 * **Botões de seleção de formato exibidos horizontalmente**, centralizados dentro de um contêiner com borda visual elegante.
 * **Opção para limpar metadados** dos arquivos convertidos (útil para remover informações embutidas como nome do artista, álbum, etc.).
 * **Conversão automática**, inclusive de arquivos `.mp3` modernos que podem não funcionar em todos os dispositivos.
@@ -29,6 +32,12 @@ Além disso, é possível optar por **remover os metadados** dos arquivos durant
 * **Exibe o caminho de saída ao final da conversão**, informando onde os arquivos foram salvos.
 * **Mensagens de erro e alertas amigáveis**, caso nenhum arquivo válido seja encontrado ou o diretório não tenha sido selecionado.
 * **Barra de progresso com contagem de arquivos convertidos e percentual concluído**.
+
+## TABELA DE CONVERSÃO:
+| SITUAÇÃO                                                | LIMPAR METADADOS = SIM                                                                                                       | LIMPAR METADADOS = NÃO                                                                                                                                |
+| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Entrada = Saída**<br>(ex.: `musica.mp3 → musica.mp3`) | `bash\nffmpeg -y -i musica.mp3 -map_metadata -1 -c copy saida.mp3\n`<br>➡️ Só copia o fluxo e remove metadados               | `bash\nffmpeg -y -i musica.mp3 -map_metadata 0 -vn -ar 44100 -ac 2 -b:a 192k saida.mp3\n`<br>➡️ Converte e preserva metadados                       |
+| **Entrada ≠ Saída**<br>(ex.: `musica.mp3 → musica.wav`) | `bash\nffmpeg -y -i musica.mp3 -map_metadata -1 -vn -ar 44100 -ac 2 -b:a 192k saida.wav\n`<br>➡️ Converte e remove metadados | `bash\nffmpeg -y -i musica.mp3 -map_metadata 0 -vn -ar 44100 -ac 2 -b:a 192k saida.wav\n`<br>➡️ Converte e preserva metadados (se o formato suportar) |
 
 ## COMO USAR?
 1. **Instale as bibliotecas necessárias:** Antes de executar o app, certifique-se de instalar todas as dependências necessárias. No terminal, execute o seguinte comando para instalar as dependências listadas no arquivo requirements.txt em `CODIGO`:

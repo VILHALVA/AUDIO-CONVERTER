@@ -1,4 +1,28 @@
 # [ATUALIZAÇÕES:](./UPDATES.md#vers%C3%A3o-10---09052025)
+## VERSÃO 1.5 - 12/09/2025:
+* ✅O que mudou de fato nessa atualização foi a **lógica de como o `ffmpeg` lida com os metadados e a conversão quando o formato de entrada = saída:**
+
+* 🛑**Antes da Atualização (1.4):**
+  * Se **entrada = saída** (ex.: MP3 → MP3):
+    * Sempre usava `-c copy` → não convertia, só copiava os fluxos.
+    * Se "SIM" → `-map_metadata -1` → removia metadados.
+    * Se "NÃO" → mantinha `-c copy` → preservava os metadados.
+
+  * Se **entrada ≠ saída** (ex.: MP3 → WAV):
+    * Sempre convertia.
+    * Se "SIM" → `-map_metadata -1` → removia metadados.
+    * Se "NÃO" → não passava nada sobre metadados → o `ffmpeg` decidia sozinho (e em alguns formatos, como WAV, acabava sem metadados).
+
+* 🔵**Depois da Atualização (1.5):**
+  1. **Entrada = saída (ex.: MP3 → MP3):**
+    * "SIM" → `-c copy -map_metadata -1` → copia só o fluxo e remove metadados.
+    * "NÃO" → Agora faz a conversão (`-vn -ar 44100 -ac 2 -b:a 192k`) e preserva metadados (`-map_metadata 0`).
+
+  2. **Entrada ≠ saída (ex.: MP3 → WAV):**
+    * "SIM" → converte e remove metadados (`-map_metadata -1`).
+    * "NÃO" → converte e preserva os metadados (`-map_metadata 0`) **na medida em que o formato de saída suporta**.
+---
+
 ## VERSÃO 1.4 - 20/08/2025:
 * ✅**Stream copy quando o formato de entrada e saída são iguais:**
     * Antes, mesmo que você convertesse `MP3 → MP3`, o programa **sempre re-encodava** (perda de qualidade + demora).
