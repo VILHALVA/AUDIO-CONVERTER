@@ -1,4 +1,20 @@
 # [ATUALIZAÇÕES:](./UPDATES.md#vers%C3%A3o-10---09052025)
+## VERSÃO 1.6 - 15/09/2025:
+* ✅**Criação do botão "MET":**
+    * Um novo botão "MET" foi adicionado, permitindo **limpar metadados sem converter o arquivo**.
+    * Esse botão só aparece quando todos os arquivos de entrada já têm o mesmo formato do arquivo de saída.
+    
+* ✅**Remoção da duplicidade do botão "SIM":**
+    * Antes, o botão "SIM" aparecia em contextos diferentes, dependendo se o formato de entrada era igual ao de saída, o que gerava confusão para o usuário.
+    * Agora, existe apenas um botão "SIM", simplificando a escolha de limpar metadados.
+
+* ✅**Refatoração do código:**
+    * Centralização da lógica de listagem de arquivos em `get_audio_files()`.
+    * Criação de funções auxiliares `reset_progress()` e `update_progress()` para atualizar a barra de progresso e status de forma limpa.
+    * Simplificação da construção do comando `ffmpeg`, evitando repetição de lógica.
+    * Organização da interface em funções menores (`create_format_selection()`, `create_metadata_selection()`, `create_buttons()`, `create_status_frame()`).
+---
+
 ## VERSÃO 1.5 - 12/09/2025:
 * ✅O que mudou de fato nessa atualização foi a **lógica de como o `ffmpeg` lida com os metadados e a conversão quando o formato de entrada = saída:**
 

@@ -10,13 +10,6 @@
 
 * É especialmente útil para tornar arquivos compatíveis com qualquer dispositivo de áudio — como aparelhos antigos, carros, players portáteis e celulares que aceitam apenas formatos tradicionais.
 
-## RECURSOS:
-* Quando o **formato de entrada e saída são os mesmos** (ex.: MP3 → MP3), o aplicativo se adapta à sua escolha:
-   * Se marcar **"SIM" para limpar metadados**, ele apenas copia o áudio original sem recodificação (`-c copy`), garantindo **qualidade idêntica e conversão muito mais rápida**.
-   * Se marcar **"NÃO"**, ele faz a **reconversão real**, aplicando as configurações de qualidade definidas e preservando os metadados.
-
-* Já ao **trocar de formato** (ex.: MP3 → WAV), o aplicativo sempre realiza a conversão, removendo ou preservando os metadados de acordo com sua escolha.
-
 ## FUNCIONALIDADES:
 * **Interface gráfica moderna (tema escuro)** com `customtkinter`.
 * **Executa em tela maximizada** e permite redimensionamento da janela.
@@ -33,11 +26,23 @@
 * **Mensagens de erro e alertas amigáveis**, caso nenhum arquivo válido seja encontrado ou o diretório não tenha sido selecionado.
 * **Barra de progresso com contagem de arquivos convertidos e percentual concluído**.
 
-## TABELA DE CONVERSÃO:
-| SITUAÇÃO                                                | LIMPAR METADADOS = SIM                                                                                                       | LIMPAR METADADOS = NÃO                                                                                                                                |
-| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Entrada = Saída**<br>(ex.: `musica.mp3 → musica.mp3`) | `bash\nffmpeg -y -i musica.mp3 -map_metadata -1 -c copy saida.mp3\n`<br>➡️ Só copia o fluxo e remove metadados               | `bash\nffmpeg -y -i musica.mp3 -map_metadata 0 -vn -ar 44100 -ac 2 -b:a 192k saida.mp3\n`<br>➡️ Converte e preserva metadados                       |
-| **Entrada ≠ Saída**<br>(ex.: `musica.mp3 → musica.wav`) | `bash\nffmpeg -y -i musica.mp3 -map_metadata -1 -vn -ar 44100 -ac 2 -b:a 192k saida.wav\n`<br>➡️ Converte e remove metadados | `bash\nffmpeg -y -i musica.mp3 -map_metadata 0 -vn -ar 44100 -ac 2 -b:a 192k saida.wav\n`<br>➡️ Converte e preserva metadados (se o formato suportar) |
+## SOBRE OS BOTÕES DE LIMPAR METADADOS:
+* **SIM:**
+  * Função: Converte o áudio para o formato escolhido **e remove os metadados**.
+  * Uso típico: Quando você quer que o arquivo final seja convertido e não contenha nenhuma informação extra, como título, artista ou capa.
+
+* **NÃO:**
+  * Função: Converte o áudio para o formato escolhido **e preserva os metadados**.
+  * Uso típico: Quando você quer manter todas as informações originais do arquivo, mesmo após a conversão.
+
+* **MET:**
+  * Função: **Não converte o formato** do arquivo (mantém a extensão original) e **remove os metadados**.
+  * Uso típico: Quando você quer apenas limpar os metadados de um conjunto de arquivos sem alterar o formato de áudio.
+
+  * **Como fazer o botão **MET** aparecer?**
+   1. O botão só aparece quando **todos os arquivos no diretório selecionado têm a mesma extensão que o formato atualmente selecionado**.
+   2. Por exemplo, se você selecionou arquivos `.mp3` e o formato escolhido também for `MP3`, o botão `MET` ficará visível.
+   3. Se houver arquivos de diferentes formatos ou se o formato escolhido não corresponder à extensão dos arquivos, o botão `MET` desaparecerá automaticamente.
 
 ## COMO USAR?
 1. **Instale as bibliotecas necessárias:** Antes de executar o app, certifique-se de instalar todas as dependências necessárias. No terminal, execute o seguinte comando para instalar as dependências listadas no arquivo requirements.txt em `CODIGO`:
@@ -78,7 +83,7 @@
 
 6. Escolha o **formato de saída desejado** entre as opções disponíveis (`MP3`, `M4A`, `WMA`, `WAV` e `OGG`), utilizando os **botões exibidos horizontalmente na área “CONVERTER PARA:”**.
 
-7. Se desejar, marque a opção **"SIM"** na seção "LIMPAR METADADOS?" para remover informações embutidas nos arquivos (como artista, álbum, capa, etc.).
+7. Na seção **"LIMPAR METADADOS?", escolha entre as opções:** **SIM** (remove os metadados e converte o áudio), **NÃO** (mantém os metadados e converte) ou **MET** (remove os metadados sem alterar o formato original; esse botão só aparece quando todos os arquivos têm a mesma extensão que o formato selecionado).
 
 8. Clique no botão **"CONVERTER"** para iniciar a conversão. Os logs anteriores serão limpos, mas o diretório selecionado permanecerá visível.
 
