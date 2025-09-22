@@ -92,7 +92,7 @@
 
 6. Escolha o **formato de saída desejado** entre as opções disponíveis (`MP3`, `M4A`, `WMA`, `WAV` e `OGG`), utilizando os **botões exibidos horizontalmente na área “CONVERTER PARA:”**.
 
-**7. Selecione a **qualidade de áudio (kbps)** desejada** entre as opções disponíveis (`128K`, `192K`, `256K` e `320K`), utilizando os **botões exibidos horizontalmente na área “QUALIDADE (KBPS):”**.
+7. Selecione a **qualidade de áudio (kbps)** desejada** entre as opções disponíveis (`128K`, `192K`, `256K` e `320K`), utilizando os **botões exibidos horizontalmente na área “QUALIDADE (KBPS):”**.
 
 8. Na seção **"LIMPAR METADADOS?", escolha entre as opções:** **SIM** (remove os metadados e converte o áudio), **NÃO** (mantém os metadados e converte) ou **MET** (remove os metadados sem alterar o formato original; esse botão só aparece quando todos os arquivos têm a mesma extensão que o formato selecionado).
 
