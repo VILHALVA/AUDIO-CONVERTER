@@ -1,4 +1,8 @@
 # [ATUALIZAÇÕES:](./UPDATES.md#vers%C3%A3o-10---09052025)
+## VERSÃO 1.7 - 22/09/2025:
+* ✅Foi criado um **novo contêiner “QUALIDADE (KBPS)”**, localizado logo abaixo do seletor **“CONVERTER PARA:”**. O usuário agora pode escolher entre **128K, 192K (padrão), 256K ou 320K** para definir a taxa de bits do áudio convertido. O valor selecionado é aplicado automaticamente no comando do **ffmpeg**, garantindo que os arquivos sejam gerados na qualidade desejada. Essa melhoria dá mais **flexibilidade** ao processo de conversão, permitindo ajustar o tamanho do arquivo final ou priorizar fidelidade de áudio conforme a necessidade. 
+---
+
 ## VERSÃO 1.6 - 15/09/2025:
 * ✅**Criação do botão "MET":**
     * Um novo botão "MET" foi adicionado, permitindo **limpar metadados sem converter o arquivo**.
@@ -63,7 +67,7 @@
   * 🔸**Remoção dos formatos**: `PADRÃO`, `flac`, `aac`, `alac` e `opus` da seção **“CONVERTER PARA”**.
   * 🔸Inclusão de um novo **contêiner exclusivo para a seção “LIMPAR METADADOS”**.
   * 🔸O botão **"DIRETÓRIO"** foi reposicionado para a **esquerda** do botão **"CONVERTER"**, alinhando melhor a interface.
-  * 🔸A altura da **caixa de status (`status_textbox`)** foi reduzida de `200` para `165`.
+  * 🔸A altura da **caixa de status (`status_textbox`)** foi reduzida de `200` para `160`.
 ---
 
 ## VERSÃO 1.2 - 09/06/2025:

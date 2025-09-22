@@ -1,9 +1,9 @@
 # AUDIO CONVERTER
 📱USE ESTE APLICATIVO PARA CONVERTER ARQUIVOS DE ÁUDIO (PARA: "MP3", "M4A", "WMA", "WAV" E "OGG") E/OU REMOVER METADADOS DE FORMA SIMPLES USANDO O FFMPEG.
 
-<img src="./IMAGENS/FOTO_01.png" align="center" width="400"> <br>
-<img src="./IMAGENS/FOTO_02.png" align="center" width="400"> <br>
-<img src="./IMAGENS/FOTO_03.png" align="center" width="400"> <br>
+<img src="./IMAGENS/FOTO_1.png" align="center" width="400"> <br>
+<img src="./IMAGENS/FOTO_2.png" align="center" width="400"> <br>
+<img src="./IMAGENS/FOTO_3.png" align="center" width="400"> <br>
 
 ## DESCRIÇÃO:
 * Este aplicativo converte automaticamente arquivos de áudio de diversos formatos (como `.mp3`, `.wav`, `.ogg`, `.flac`, `.aac`, `.m4a`, `.wma`, `.alac`, `.opus`, `.mp4`, `.mov` e `.webm`) para um formato de saída escolhido pelo usuário, utilizando a poderosa ferramenta `ffmpeg`.
@@ -11,20 +11,29 @@
 * É especialmente útil para tornar arquivos compatíveis com qualquer dispositivo de áudio — como aparelhos antigos, carros, players portáteis e celulares que aceitam apenas formatos tradicionais.
 
 ## FUNCIONALIDADES:
-* **Interface gráfica moderna (tema escuro)** com `customtkinter`.
+* **Interface gráfica moderna (tema escuro)** desenvolvida com `customtkinter`.
 * **Executa em tela maximizada** e permite redimensionamento da janela.
 * **Seleção de diretório** contendo os arquivos de áudio.
 * **Escolha do formato de saída** entre: `MP3`, `M4A`, `WMA`, `WAV` e `OGG`.
-* **Permite escolher a preservação de metadados** e, se desejar, faz a conversão mesmo quando entrada e saída têm o mesmo formato, mantendo a qualidade ou aplicando a configuração de áudio definida.
-* **Botões de seleção de formato exibidos horizontalmente**, centralizados dentro de um contêiner com borda visual elegante.
-* **Opção para limpar metadados** dos arquivos convertidos (útil para remover informações embutidas como nome do artista, álbum, etc.).
-* **Conversão automática**, inclusive de arquivos `.mp3` modernos que podem não funcionar em todos os dispositivos.
-* **Criação de uma nova pasta** chamada `CONVERTIDOS_<FORMATO>` para salvar os arquivos convertidos.
-* **Área de status com logs em tempo real**, exibindo o progresso da conversão.
-* **Mantém a mensagem do diretório selecionado** visível mesmo após limpar o campo de status.
-* **Exibe o caminho de saída ao final da conversão**, informando onde os arquivos foram salvos.
+* **Controle da qualidade de áudio (kbps)**, com opções de `128K`, `192K` (padrão), `256K` e `320K`.
+* **Preservação ou remoção de metadados**, com possibilidade de conversão mesmo quando o formato de entrada e saída é o mesmo.
+* **Botões de seleção de formato e qualidade exibidos horizontalmente**, centralizados em contêineres elegantes.
+* **Opção para limpar metadados** dos arquivos convertidos, útil para remover informações como artista, álbum ou comentários embutidos.
+* **Conversão automática**, inclusive de arquivos `.mp3` modernos que podem não ser compatíveis com todos os dispositivos.
+* **Criação automática de uma pasta `CONVERTIDOS_<FORMATO>`** para salvar os arquivos convertidos.
+* **Área de status com logs em tempo real**, mostrando mensagens de processamento e progresso da conversão.
+* **Mantém a mensagem do diretório selecionado visível** mesmo após limpar o campo de status.
+* **Exibição do caminho de saída ao final da conversão**, informando onde os arquivos foram salvos.
 * **Mensagens de erro e alertas amigáveis**, caso nenhum arquivo válido seja encontrado ou o diretório não tenha sido selecionado.
-* **Barra de progresso com contagem de arquivos convertidos e percentual concluído**.
+* **Barra de progresso com contagem de arquivos convertidos e percentual concluído**, facilitando o acompanhamento visual do processo.
+
+## SOBRE OS BOTÕES DE QUALIDADE (KBPS):
+* **128K (\~3,4 a 4,6 MB em 4 min)** → Qualidade **básica/aceitável**. Apresenta artefatos metálicos, perda de definição nos agudos e graves levemente abafados.
+* **192K (\~6,9 MB em 4 min)** → Qualidade **boa e equilibrada**. Distorsões discretas, mantendo nitidez satisfatória em músicas e vozes. É o padrão indicado para uso geral.
+* **256K (\~9,2 MB em 4 min)** → Qualidade **muito boa**, próxima da máxima. Preserva riqueza sonora e dinâmica, ideal para quem busca alta fidelidade sem gerar arquivos tão grandes quanto em `320K`.
+* **320K (\~11,5 MB em 4 min)** → Qualidade **excelente**, comparável à de um CD. Praticamente transparente ao ouvido humano, mas com maior consumo de espaço em disco.
+
+**Observação:** É possível converter de uma taxa maior para uma menor, por exemplo de **320K para 128K**, o que resulta em arquivos menores, mas inevitavelmente com **perda de qualidade**. No entanto, o processo inverso — converter de **128K para 320K** — não recupera a qualidade original; apenas gera arquivos maiores, mantendo as limitações do áudio de origem.
 
 ## SOBRE OS BOTÕES DE LIMPAR METADADOS:
 * **SIM:**
@@ -83,15 +92,17 @@
 
 6. Escolha o **formato de saída desejado** entre as opções disponíveis (`MP3`, `M4A`, `WMA`, `WAV` e `OGG`), utilizando os **botões exibidos horizontalmente na área “CONVERTER PARA:”**.
 
-7. Na seção **"LIMPAR METADADOS?", escolha entre as opções:** **SIM** (remove os metadados e converte o áudio), **NÃO** (mantém os metadados e converte) ou **MET** (remove os metadados sem alterar o formato original; esse botão só aparece quando todos os arquivos têm a mesma extensão que o formato selecionado).
+**7. Selecione a **qualidade de áudio (kbps)** desejada** entre as opções disponíveis (`128K`, `192K`, `256K` e `320K`), utilizando os **botões exibidos horizontalmente na área “QUALIDADE (KBPS):”**.
 
-8. Clique no botão **"CONVERTER"** para iniciar a conversão. Os logs anteriores serão limpos, mas o diretório selecionado permanecerá visível.
+8. Na seção **"LIMPAR METADADOS?", escolha entre as opções:** **SIM** (remove os metadados e converte o áudio), **NÃO** (mantém os metadados e converte) ou **MET** (remove os metadados sem alterar o formato original; esse botão só aparece quando todos os arquivos têm a mesma extensão que o formato selecionado).
 
-9. Acompanhe o processo na **caixa de status**, que exibe logs em tempo real do `ffmpeg`, incluindo os nomes dos arquivos sendo processados e qualquer mensagem relevante.
+9. Clique no botão **"CONVERTER"** para iniciar a conversão. Os logs anteriores serão limpos, mas o diretório selecionado permanecerá visível.
 
-10. Ao final, uma mensagem de confirmação será exibida, **indicando o sucesso da conversão e o caminho da pasta de saída**.
+10. Acompanhe o processo na **caixa de status**, que exibe logs em tempo real do `ffmpeg`, incluindo os nomes dos arquivos sendo processados e qualquer mensagem relevante.
 
-11. Os arquivos convertidos estarão em uma subpasta chamada **`CONVERTIDOS_<FORMATO>`** (por exemplo, `CONVERTIDOS_MP3`), criada automaticamente dentro do diretório selecionado.
+11. Ao final, uma mensagem de confirmação será exibida, **indicando o sucesso da conversão e o caminho da pasta de saída**.
+
+12. Os arquivos convertidos estarão em uma subpasta chamada **`CONVERTIDOS_<FORMATO>`** (por exemplo, `CONVERTIDOS_MP3`), criada automaticamente dentro do diretório selecionado.
 
 ## SOBRE O EXECUTAVEL E O INSTALADOR:
 ### 1. EXECUTANDO O INSTALADOR:

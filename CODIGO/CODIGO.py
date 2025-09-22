@@ -12,8 +12,6 @@ AUDIO_EXTENSIONS = [
     '*.mov', '*.webm'
 ]
 
-CONV = ["-vn", "-ar", "44100", "-ac", "2", "-b:a", "192k"]
-
 def is_hidden(filepath):
     name = os.path.basename(filepath)
     if name.startswith('.'):
@@ -35,6 +33,7 @@ class AudioConverterApp:
         self.selected_directory = ""
         self.output_format = ctk.StringVar(value="MP3")
         self.limpar_metadados = ctk.StringVar(value="NAO")
+        self.audio_quality = ctk.StringVar(value="192K")  
 
         self.scrollable_frame = ctk.CTkScrollableFrame(root, width=700, height=700)
         self.scrollable_frame.pack(padx=20, pady=20, fill="both", expand=True)
@@ -42,6 +41,7 @@ class AudioConverterApp:
         ctk.CTkLabel(self.scrollable_frame, text="CONVERSOR DE ÁUDIO", font=("Arial", 30, "bold")).pack(pady=10)
 
         self.create_format_selection()
+        self.create_quality_selection()   
         self.create_metadata_selection()
         self.create_buttons()
         self.create_status_frame()
@@ -57,6 +57,18 @@ class AudioConverterApp:
         for fmt in formats:
             ctk.CTkRadioButton(inner, text=fmt, variable=self.output_format, value=fmt,
                                command=self.update_convert_button_state).pack(side="left", padx=5)
+
+    def create_quality_selection(self):
+        frame = ctk.CTkFrame(self.scrollable_frame, border_width=2, corner_radius=10)
+        frame.pack(pady=5, padx=20, fill="x")
+        ctk.CTkLabel(frame, text="QUALIDADE (KBPS):").pack(pady=(10, 0))
+
+        inner = ctk.CTkFrame(frame)
+        inner.pack(pady=10)
+
+        qualities = ["128K", "192K", "256K", "320K"]
+        for q in qualities:
+            ctk.CTkRadioButton(inner, text=q, variable=self.audio_quality, value=q).pack(side="left", padx=10)
 
     def create_metadata_selection(self):
         frame = ctk.CTkFrame(self.scrollable_frame, border_width=2, corner_radius=10)
@@ -94,7 +106,7 @@ class AudioConverterApp:
         self.cm_button.pack_forget()
 
     def create_status_frame(self):
-        self.status_textbox = ctk.CTkTextbox(self.scrollable_frame, width=500, height=165)
+        self.status_textbox = ctk.CTkTextbox(self.scrollable_frame, width=500, height=160)
         self.status_textbox.pack(pady=10)
         self.status_textbox.configure(state='disabled')
 
@@ -183,12 +195,16 @@ class AudioConverterApp:
             output_file = os.path.join(output_dir, f"{name_wo_ext}.{selected_format}")
 
             cmd = ["ffmpeg", "-y", "-i", file_path]
-            cmd += CONV if converter else ["-c", "copy"]
+            if converter:
+                cmd += ["-vn", "-ar", "44100", "-ac", "2", "-b:a", self.audio_quality.get()]
+            else:
+                cmd += ["-c", "copy"]
+
             cmd += ["-map_metadata", "-1"] if limpar_metadados else ["-map_metadata", "0"]
             cmd.append(output_file)
 
             self.append_status(f"Processando: {filename}...\n")
-
+            
             try:
                 subprocess.run(
                     cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
